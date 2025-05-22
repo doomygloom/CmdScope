@@ -20,7 +20,7 @@ cat << 'EOF' > /usr/local/bin/cmdscope.bt
 tracepoint:syscalls:sys_enter_execve
 {
     time("%Y-%m-%d %H:%M:%S ");
-    printf("%s [%d] ran:", comm, pid);
+    printf("uid=%d %s [%d] ran:", uid, comm, pid);
 
     printf(" %s", str(args->argv[0]));
     printf(" %s", str(args->argv[1]));
